@@ -1,0 +1,45 @@
+{
+  "name": "wdio-image-diff",
+  "version": "1.0.0",
+  "description": "This package is visual regression tool intended to expose functions specifically for webdriverIO so that you can take screenshots and compare it to a baseline.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jest",
+    "lint": "eslint --cache .",
+    "build": "babel src --presets babel-preset-es2015 --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uktrade/wdio-image-diff.git"
+  },
+  "author": "UK GOV - DIT",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^24.0.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^5.6.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-mocha": "^5.2.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/uktrade/wdio-image-diff/issues"
+  },
+  "homepage": "https://github.com/uktrade/wdio-image-diff#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "looks-same": "^7.2.1",
+    "pixelmatch": "^4.0.2",
+    "pngjs": "^3.4.0"
+  }
+}
