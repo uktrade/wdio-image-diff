@@ -1,8 +1,8 @@
 {
-  "name": "wdio-image-diff",
+  "name": "@uktrade/wdio-image-diff-js",
   "version": "1.0.0",
   "description": "This package is visual regression tool intended to expose functions specifically for webdriverIO so that you can take screenshots and compare it to a baseline.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/jest",
     "lint": "eslint --cache .",
