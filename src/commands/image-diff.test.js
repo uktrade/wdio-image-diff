@@ -1,6 +1,5 @@
 import fs from 'fs'
 import imageDiff from './image-diff'
-import pixelmatch from 'pixelmatch'
 
 jest.mock('fs', () => {
   return {
@@ -8,12 +7,6 @@ jest.mock('fs', () => {
     copyFileSync: jest.fn(),
     createReadStream: jest.fn(),
     createWriteStream: jest.fn(),
-  }
-})
-
-jest.mock('pixelmatch', () => {
-  return {
-    pixelMatch: jest.fn(),
   }
 })
 
@@ -46,19 +39,5 @@ describe('Image diff', () => {
     expect(fs.createReadStream).toHaveBeenCalledTimes(2)
     expect(fs.existsSync).toHaveBeenCalledTimes(1)
     expect(fs.copyFileSync).toHaveBeenCalledTimes(1)
-  })
-
-  test('Image with no differences should return 0', () => {    
-    pixelmatch.pixelMatch.mockReturnValue(0)
-    const result = imageDiff('dummy')
-    
-    expect(result).resolves.toEqual(0)
-  })
-
-  test('Image with differences should return the pixel differences', () => {    
-    pixelmatch.pixelMatch.mockReturnValue(10)
-    const result = imageDiff('dummy')
-
-    expect(result).resolves.toEqual(10)
   })
 })
