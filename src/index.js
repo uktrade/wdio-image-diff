@@ -23,8 +23,7 @@ class WdioImage {
   }
 
   validate(testName) {
-    const result = imageDiff(testName)
-    return assert(result == 0)
+    return imageDiff(testName)
   }
 }
 
