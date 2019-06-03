@@ -5,14 +5,14 @@ import fs from 'fs'
 
 const imageDiff = (testName) => {
   return new Promise((resolve, reject) => {
-    if (!fs.existsSync(path.baselineImgPath(testName))) {
-      fs.copyFileSync(path.comparisonImgPath(testName), path.baselineImgPath(testName))
+    if (!fs.existsSync(path.image.baseline(testName))) {
+      fs.copyFileSync(path.image.comparison(testName), path.image.baseline(testName))
     }
 
-    const comparisonImage = fs.createReadStream(path.comparisonImgPath(testName))
+    const comparisonImage = fs.createReadStream(path.image.comparison(testName))
       .pipe(new pngjs.PNG())
       .on('parsed', doneReading)
-    const baselineImage = fs.createReadStream(path.baselineImgPath(testName))
+    const baselineImage = fs.createReadStream(path.image.baseline(testName))
       .pipe(new pngjs.PNG())
       .on('parsed', doneReading)
     let filesRead = 0
@@ -29,7 +29,7 @@ const imageDiff = (testName) => {
         baselineImage.height)
       
       if (result != 0) {
-        diffImage.pack().pipe(fs.createWriteStream(path.diffImgPath(testName)));
+        diffImage.pack().pipe(fs.createWriteStream(path.image.diff(testName)));
       }
       
       resolve(result)

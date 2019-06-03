@@ -1,9 +1,23 @@
 import path from 'path'
 
+const parentDirFolderName = 'visual-screenshots'
+const parentDir = path.join(process.cwd(), parentDirFolderName)
+const baseline = path.join(process.cwd(), parentDirFolderName, 'baseline')
+const comparison = path.join(process.cwd(), parentDirFolderName, 'comparison')
+const diff = path.join(process.cwd(), parentDirFolderName, 'diff')
+
 const paths = {
-  baselineImgPath: (testName) => { return path.join(process.cwd(), 'visual-screenshots', 'baseline', `${testName}.png`) },
-  comparisonImgPath: (testName) => { return path.join(process.cwd(), 'visual-screenshots', 'comparison', `${testName}.png`) },
-  diffImgPath: (testName) => { return path.join(process.cwd(), 'visual-screenshots', 'diff', `${testName}.png`) },
+  image: {
+    baseline: (testName) => { return path.join(baseline, `${testName}.png`) },
+    comparison: (testName) => { return path.join(comparison, `${testName}.png`) },
+    diff: (testName) => { return path.join(diff, `${testName}.png`) },
+  },
+  dir: {
+    baseline,
+    comparison,
+    diff,
+  },
+  parentDir,
 }
 
 export default paths
