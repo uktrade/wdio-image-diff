@@ -18,7 +18,7 @@ class WdioImage {
   }
 
   take(testName) {
-    saveScreenshot(this._browser, testName)
+    return saveScreenshot(this._browser, testName)
   }
 
   validate(testName) {

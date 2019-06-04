@@ -39,8 +39,6 @@
   "dependencies": {
     "fs": "0.0.1-security",
     "pixelmatch": "^4.0.2",
-    "pngjs": "^3.4.0",
-    "set-blocking": "^2.0.0"
-
+    "pngjs": "^3.4.0"
   }
 }
