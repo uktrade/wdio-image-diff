@@ -1,4 +1,3 @@
-import assert from 'assert'
 import path from './config/config'
 import createDir from './utils'
 import imageDiff from './commands/image-diff'

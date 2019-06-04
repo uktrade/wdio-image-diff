@@ -4,7 +4,7 @@ import pngjs from 'pngjs'
 import fs from 'fs'
 
 const imageDiff = (testName) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     if (!fs.existsSync(path.image.baseline(testName))) {
       fs.copyFileSync(path.image.comparison(testName), path.image.baseline(testName))
     }
