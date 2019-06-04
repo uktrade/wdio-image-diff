@@ -1,16 +1,20 @@
 # wdio-image-diff
 
-This package is visual regression tool intended to expose functions to allow you to view the difference between 2 images.
-The wrapper uses `pixelmatch` and relies on a browser instance of `webdriverIO` to take screenshots.
+This wrapper was created to make visual regression as simple as possible, by exposing basic functions that allow you to view the difference between images.
+The wrapper uses [pixelmatch](https://github.com/mapbox/pixelmatch) which is simple and powerful and relies on a browser object of [webdriverIO](https://github.com/webdriverio) to take screenshots.
 
-**This is very much a POC still, features to make this wrapper more usable and flexible will be added in the issues tab.
+**This is very much a POC, features to make this wrapper more usable and flexible will be added in the issues tab.
 
 ## Build status
 
 [![CircleCI](https://circleci.com/gh/uktrade/wdio-image-diff/tree/master.svg?style=svg)](https://circleci.com/gh/uktrade/wdio-image-diff/tree/master)
 
-## Setup
-- run `npm install @uktrade/wdio-image-diff-js`
+## Capabilities
+- Compares 2 images
+- Saves baseline if no baseline is present
+- Creates a diff image in case of failure
+- Works with any device/browser supported by webdriverIO
+- It's currently limited to take screenshots of the entire page
 
 ## Integration with webdriverIO
 - in `wdio.conf.js` require the package: `const WdioImage = require ('@uktrade/wdio-image-diff-js').default`
