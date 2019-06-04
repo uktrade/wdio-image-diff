@@ -12,6 +12,14 @@
     "type": "git",
     "url": "git+https://github.com/uktrade/wdio-image-diff.git"
   },
+  "keywords": [
+    "webdriverio",
+    "saucelabs",
+    "browserstack",
+    "visual regression",
+    "visual",
+    "regression"
+  ],
   "author": "UK GOV - DIT",
   "license": "MIT",
   "devDependencies": {

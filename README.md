@@ -14,10 +14,10 @@ The wrapper uses pixelmatch and relies on a browser instance of webdriverio to t
 - in `wdio.conf.js` require the package: `const WdioImage = require ('@uktrade/wdio-image-diff-js').default`
 - instantiate and expose the wdioimagediff instance to the browser object:
   ```
-      before: function () {
-        const wdioImageDiff = new WdioImage(browser)
-        browser.imageDiff = wdioImageDiff
-      },
+  before: function () {
+    const wdioImageDiff = new WdioImage(browser)
+    browser.imageDiff = wdioImageDiff
+  },
   ```
 
 ## Writing a test
@@ -27,16 +27,16 @@ The wrapper uses pixelmatch and relies on a browser instance of webdriverio to t
   2) take a screenshot
   3) validate it with the baseline (if no baseline is present for the given test, it will save it for you)
   ```
-      const assert = require('assert')
+  const assert = require('assert')
 
-      describe('Visual Test', () => {
-        it('should visually check google home page is correct', async () => {
-          await browser.url('https://google.com')
-          await browser.imageDiff.take('SomeTest4')
-          await browser.imageDiff.validate('SomeTest4').then(result => {
-            assert.equal(result, 0)
-          })
-        })
+  describe('Visual Test', () => {
+    it('should visually check google home page is correct', async () => {
+      await browser.url('https://google.com')
+      await browser.imageDiff.take('SomeTest4')
+      await browser.imageDiff.validate('SomeTest4').then(result => {
+        assert.equal(result, 0)
       })
+    })
+  })
   ```
 - Ensure whatever test name provided while taking/validating the images is unique, otherwise it will override itself.
