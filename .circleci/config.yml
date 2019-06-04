@@ -60,7 +60,7 @@ jobs:
 
 workflows:
   version: 2
-  datasciencefe:
+  wdioimagediff:
     jobs:
       - dependencies
       - lint_test:
