@@ -5,6 +5,7 @@ import saveScreenshot from './commands/save-screenshot'
 
 class WdioImage {
   constructor(browser, options = undefined) {
+    const options = options || {}
     const width = options.width || 1280
     const height = options.height || 870
     this._threshold = options.threshold || 0.0
