@@ -13,8 +13,10 @@ The wrapper uses [pixelmatch](https://github.com/mapbox/pixelmatch) which is sim
 - Compares 2 images
 - Saves baseline if no baseline is present
 - Creates a diff image in case of failure
-- Works with any device/browser supported by webdriverIO
-- It's currently limited to take screenshots of the entire page
+- Works with any device/browser supported by wdio and your third party i.e saucelabs
+- Force browser window size so it's not reliant on third party (size can be modified via options)
+
+**It's currently limited to take screenshots of the entire page
 
 ## Integration with webdriverIO
 - in `wdio.conf.js` require the package: `const WdioImage = require ('@uktrade/wdio-image-diff-js').default`
@@ -53,7 +55,7 @@ When instantiating the `WdioImage` you can provide an `options` object i.e:
 ```
 const options = {
   width: 1024,
-  height: 764,
+  height: 768,
   threshold: 0.1
 }
 const wdioImageDiff = new WdioImage(browser, options)
