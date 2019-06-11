@@ -4,12 +4,18 @@ import imageDiff from './commands/image-diff'
 import saveScreenshot from './commands/save-screenshot'
 
 class WdioImage {
-  constructor(browser) {
+  constructor(browser, options = undefined) {
+    const width = options.width || 1280
+    const height = options.height || 870
+    this._threshold = options.threshold || 0.0
     // webdriverIO browser instance
     this._browser = browser
 
     // Create parent directory
     createDir(path.parentDir)
+
+    // Sets window size
+    this._browser.windowHandleSize({ width, height })
 
     // Create subfolders in parent directory
     Object.values(path.dir).forEach(dir => {
@@ -22,7 +28,7 @@ class WdioImage {
   }
 
   validate(testName) {
-    return imageDiff(testName)
+    return imageDiff(testName, this._threshold)
   }
 }
 

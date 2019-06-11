@@ -3,8 +3,9 @@ import pixelMatch from 'pixelmatch'
 import pngjs from 'pngjs'
 import fs from 'fs'
 
-const imageDiff = (testName) => {
+const imageDiff = (testName, threshold = 0.0 ) => {
   return new Promise((resolve) => {
+    // If baseline does not exist, copy comparison image to baseline
     if (!fs.existsSync(path.image.baseline(testName))) {
       fs.copyFileSync(path.image.comparison(testName), path.image.baseline(testName))
     }
@@ -26,7 +27,9 @@ const imageDiff = (testName) => {
         comparisonImage.data,
         diffImage.data,
         baselineImage.width,
-        baselineImage.height)
+        baselineImage.height,
+        { threshold },
+        )
       
       if (result != 0) {
         diffImage.pack().pipe(fs.createWriteStream(path.image.diff(testName)));
