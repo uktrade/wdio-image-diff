@@ -16,7 +16,7 @@ class WdioImage {
     createDir(path.parentDir)
 
     // Sets window size
-    this._browser.windowHandleSize({ width, height })
+    this._browser.setWindowSize(width, height)
 
     // Create subfolders in parent directory
     Object.values(path.dir).forEach(dir => {
