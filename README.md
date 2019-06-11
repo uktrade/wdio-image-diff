@@ -59,10 +59,9 @@ const options = {
   threshold: 0.1
 }
 const wdioImageDiff = new WdioImage(browser, options)
+```
 
 the default values if options or any of its keys is not provided are:
-  
   - width: 1280
   - height: 870
   - threshold: 0.0
-```
