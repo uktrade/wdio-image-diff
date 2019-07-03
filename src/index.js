@@ -4,6 +4,8 @@ import imageDiff from './commands/image-diff'
 import saveScreenshot from './commands/save-screenshot'
 
 class WdioImage {
+  testName = 'Undefined test name'
+
   constructor(browser, opts = undefined) {
     const options = opts || {}
     const width = options.width || 1280
@@ -24,11 +26,11 @@ class WdioImage {
     })
   }
 
-  take(testName) {
+  take() {
     return saveScreenshot(this._browser, testName)
   }
 
-  validate(testName) {
+  validate() {
     return imageDiff(testName, this._threshold)
   }
 }
