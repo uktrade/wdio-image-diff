@@ -72,4 +72,4 @@ the default values if options or any of its keys is not provided are:
 
 Available properties used by methods of the class
 
-`testName # Default value set to 'Undefined test name'`
+`testName` # Default value set to 'Undefined test name'
