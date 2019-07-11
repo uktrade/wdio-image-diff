@@ -1,7 +1,8 @@
-import path from './config/config'
 import createDir from './utils'
 import imageDiff from './commands/image-diff'
+import path from './config/config'
 import saveScreenshot from './commands/save-screenshot'
+
 
 class WdioImage {
   constructor(browser, opts = undefined) {
@@ -11,7 +12,7 @@ class WdioImage {
     this.testName = 'Undefined test name'
     this._threshold = options.threshold || 0.0
 
-    // webdriverIO browser instance
+    // wdio browser instance
     this._browser = browser
 
     // Create parent directory
@@ -30,8 +31,9 @@ class WdioImage {
     return saveScreenshot(this._browser, this.testName)
   }
 
-  validate() {
-    return imageDiff(this.testName, this._threshold)
+  async validate() {
+    const result = await imageDiff(this.testName, this._threshold)
+    return result
   }
 }
 

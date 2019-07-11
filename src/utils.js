@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-const createDir = (dir) => {
+const createDir = dir => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir)
   }
