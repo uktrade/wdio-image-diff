@@ -1,5 +1,5 @@
 import createDir from './utils'
-import { createReport } from './reporter/reporter'
+import { createReport } from './reporter'
 import imageDiff from './commands/image-diff'
 import path from './config/config'
 import saveScreenshot from './commands/save-screenshot'
@@ -11,7 +11,7 @@ class WdioImage {
 
     // Properties
     this.testName = 'Undefined test name'
-    this.testStatus = []
+    this.testStatuses = []
     this._threshold = options.threshold || 0.0
 
     // wdio browser instance
@@ -35,12 +35,12 @@ class WdioImage {
 
   async validate() {
     const result = await imageDiff(this.testName, this._threshold)
-    this.testStatus.push(new TestStatus(result, this.testName))
+    this.testStatuses.push(new TestStatus(result, this.testName))
     return result
   }
 
   generateReport() {
-    createReport(this.testName)
+    createReport({ tests: this.testStatuses })
   }
 }
 

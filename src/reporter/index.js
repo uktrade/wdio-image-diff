@@ -22,7 +22,7 @@ export const generateTemplate = testStatus => {
     }
   })
 
-  let templateFile = fs.readFileSync(path.resolve(__dirname, '../reporter/template.hbs'), 'utf8')
+  const templateFile = fs.readFileSync(path.resolve(__dirname, '../reporter/template.hbs'), 'utf8')
   const template = Handlebars.compile(templateFile)
 
   return template(testStatus)

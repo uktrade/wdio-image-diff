@@ -1,4 +1,4 @@
-import { generateTemplate } from './reporter'
+import { generateTemplate } from '.'
 
 describe('Reporter', () => {
   describe('create report', () => {
