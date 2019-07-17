@@ -12,6 +12,7 @@ const paths = {
     comparison: (testName) => { return path.join(comparison, `${testName}.png`) },
     diff: (testName) => { return path.join(diff, `${testName}.png`) },
   },
+  report: () => { return path.join(process.cwd(), 'visual-test-report.html') },
   dir: {
     baseline,
     comparison,

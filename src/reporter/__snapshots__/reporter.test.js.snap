@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reporter create report should create html template 1`] = `
+"<!DOCTYPE html>
+<html lang=\\"en\\">
+  <head>
+    <meta charset=\\"utf-8\\">
+    <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\">
+    <meta name=\\"description\\" content=\\"[% title %]\\">
+    <title>Wdio Image Diff Report</title>
+    <link rel=\\"stylesheet\\" href=\\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\\">
+    <style type=\\"text/css\\">
+      @import url(\\"src/reporter/style.css\\");
+    </style>
+  </head>
+  <body>
+    <div class=\\"container\\">
+      <div id=\\"report-header\\" class=\\"page-header\\"><h1></h1></div>
+      <h2>Results</h2>
+      <table>
+          <tr>
+            <td>
+              <table class=\\"table table-test\\">
+                <tr>
+                  <td colspan=\\"2\\" class=\\"test-pass\\">
+                    <span class=\\"success\\">&#10004;</span>
+                    Visual Test 1
+                  </td>
+                </tr>
+              </table>
+            </td>
+          <tr>
+          <tr>
+            <td>
+              <table class=\\"table table-test\\">
+                <tr>
+                  <td colspan=\\"2\\" class=\\"test-fail\\">
+                    <span class=\\"error\\">&#10006;</span>
+                    Visual Test 2
+                  </td>
+                </tr>
+                  <tr class=\\"test-row screenshot\\">
+                    <td colspan=\\"2\\">
+                      <div class=\\"row\\">
+                        <div class=\\"screenshot-column\\">
+                          <h4>Baseline</h4>
+                          <a href=\\"visual-screenshots/baseline/Visual Test 2.png\\">
+                            <img src=\\"visual-screenshots/baseline/Visual Test 2.png\\" alt=\\"Snow\\" style=\\"width:100%\\">
+                          </a>
+                        </div>
+                        <div class=\\"screenshot-column\\">
+                          <h4>Comparison</h4>
+                          <a href=\\"visual-screenshots/comparison/Visual Test 2.png\\">
+                            <img src=\\"visual-screenshots/comparison/Visual Test 2.png\\" alt=\\"Snow\\" style=\\"width:100%\\">
+                          </a>
+                        </div>
+                        <div class=\\"screenshot-column\\">
+                          <h4>Diff</h4>
+                          <a href=\\"visual-screenshots/diff/Visual Test 2.png\\">
+                            <img src=\\"visual-screenshots/diff/Visual Test 2.png\\" alt=\\"Snow\\" style=\\"width:100%\\">
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+              </table>
+            </td>
+          <tr>
+      </table>
+    </div>
+  </body>
+</html>"
+`;
