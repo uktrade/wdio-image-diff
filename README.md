@@ -73,3 +73,22 @@ the default values if options or any of its keys is not provided are:
 Available properties used by methods of the class
 
 `testName` # Default value set to 'Undefined test name'
+
+## Reporting
+
+Integration with wdio:
+
+```
+exports.config = {
+  after: () => {
+    browser.imageDiff.generateReport()
+  },
+}
+```
+
+A simple report can be generated after the suite is executed.
+Screenshots will only be linked to a test on failures.
+
+The report will look something like:
+
+![WDIO Image Diff Report](report-example.png)
