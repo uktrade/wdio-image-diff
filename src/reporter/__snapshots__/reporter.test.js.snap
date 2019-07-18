@@ -10,7 +10,7 @@ exports[`Reporter create report should create html template 1`] = `
     <title>Wdio Image Diff Report</title>
     <link rel=\\"stylesheet\\" href=\\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\\">
     <style type=\\"text/css\\">
-      @import url(\\"/Users/filipporaimondi/code/wdio-image-diff/src/reporter/style.css\\")    </style>
+      @import url(\\"some/path/style.css\\")    </style>
   </head>
   <body>
     <div class=\\"container\\">

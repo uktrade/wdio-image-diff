@@ -1,5 +1,11 @@
 import { generateTemplate } from '.'
 
+jest.mock('../config/config', () => ({
+  get css () {
+    return jest.fn(() => { return 'some/path' })
+  }
+}))
+
 describe('Reporter', () => {
   describe('create report', () => {
     it('should create html template', () => {
