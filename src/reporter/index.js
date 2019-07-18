@@ -36,6 +36,4 @@ const handlebarsHelpers = () => {
       return options.fn(this)
     }
   })
-
-  Handlebars.registerPartial('cssPath', `@import url("${paths.css()}/style.css")`)
 }
