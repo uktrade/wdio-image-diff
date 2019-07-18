@@ -4,8 +4,23 @@ import path from 'path'
 import paths from '../config/config'
 
 export const generateTemplate = testStatus => {
-  Handlebars.registerHelper('testStateIcon', state => {
-    if (state === 'pass') {
+  handlebarsHelpers()
+  const templateFile = fs.readFileSync(path.resolve(__dirname, '../reporter/template.hbs'), 'utf8')
+  const template = Handlebars.compile(templateFile)
+
+  return template(testStatus)
+}
+
+export const createReport = testStatus => {
+  const template = generateTemplate(testStatus)
+  fs.writeFile(paths.report(), template, err => {
+    if (err) throw err
+  })
+}
+
+const handlebarsHelpers = () => {
+  Handlebars.registerHelper('testStateIcon', status => {
+    if (status === 'pass') {
       return '<span class="success">&#10004;</span>'
     }
     return '<span class="error">&#10006;</span>'
@@ -22,17 +37,5 @@ export const generateTemplate = testStatus => {
     }
   })
 
-  Handlebars.registerPartial('cssPath', `@import url("${path.resolve(__dirname)}/style.css")`)
-
-  const templateFile = fs.readFileSync(path.resolve(__dirname, '../reporter/template.hbs'), 'utf8')
-  const template = Handlebars.compile(templateFile)
-
-  return template(testStatus)
-}
-
-export const createReport = testStatus => {
-  const template = generateTemplate(testStatus)
-  fs.writeFile(paths.report(), template, err => {
-    if (err) throw err
-  })
+  Handlebars.registerPartial('cssPath', `@import url("${paths.css()}/style.css")`)
 }

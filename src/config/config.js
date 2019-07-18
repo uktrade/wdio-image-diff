@@ -13,6 +13,7 @@ const paths = {
     diff: (testName) => { return path.join(diff, `${testName}.png`) },
   },
   report: () => { return path.join(process.cwd(), 'visual-test-report.html') },
+  css: () => { return path.join(path.resolve(__dirname), '..', 'reporter')},
   dir: {
     baseline,
     comparison,
