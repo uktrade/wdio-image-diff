@@ -1,5 +1,5 @@
 import Handlebars from 'handlebars'
-import fs from 'fs-extra'
+import fs from 'fs'
 import path from 'path'
 import paths from '../config/config'
 
@@ -22,6 +22,8 @@ export const generateTemplate = testStatus => {
     }
   })
 
+  Handlebars.registerPartial('cssPath', `@import url("${path.resolve(__dirname)}/style.css")`)
+
   const templateFile = fs.readFileSync(path.resolve(__dirname, '../reporter/template.hbs'), 'utf8')
   const template = Handlebars.compile(templateFile)
 
@@ -30,5 +32,7 @@ export const generateTemplate = testStatus => {
 
 export const createReport = testStatus => {
   const template = generateTemplate(testStatus)
-  fs.writeFilSync(paths.report, template)
+  fs.writeFile(paths.report(), template, err => {
+    if (err) throw err
+  })
 }
