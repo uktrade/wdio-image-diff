@@ -4,7 +4,7 @@ class TestStatus {
     this.name = name
   }
 
-  getStatus() {
+  get testStatus() {
     if (this.status === 0) {
       return 'pass'
     }

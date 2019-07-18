@@ -7,7 +7,8 @@
     <title>Wdio Image Diff Report</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <style type="text/css">
-      @import url("src/reporter/style.css");
+      {{#cssPath}}
+      {{/cssPath}}
     </style>
   </head>
   <body>
@@ -25,7 +26,7 @@
                     {{test.name}}
                   </td>
                 </tr>
-                {{#equal test.state 'fail'}}
+                {{#equal test.testStatus 'fail'}}
                   <tr class="test-row screenshot">
                     <td colspan="2">
                       <div class="row">
