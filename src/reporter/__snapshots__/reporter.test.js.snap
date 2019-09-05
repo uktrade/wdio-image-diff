@@ -116,20 +116,20 @@ exports[`Reporter create report should create html template 1`] = `
                       <div class=\\"row\\">
                         <div class=\\"screenshot-column\\">
                           <h4>Baseline</h4>
-                          <a href=\\"visual-screenshots/baseline/Visual Test 2.png\\">
-                            <img src=\\"visual-screenshots/baseline/Visual Test 2.png\\" alt=\\"Snow\\" style=\\"width:100%\\">
+                          <a href=\\"../visual-screenshots/baseline/Visual Test 2.png\\">
+                            <img src=\\"../visual-screenshots/baseline/Visual Test 2.png\\" alt=\\"Snow\\" style=\\"width:100%\\">
                           </a>
                         </div>
                         <div class=\\"screenshot-column\\">
                           <h4>Comparison</h4>
-                          <a href=\\"visual-screenshots/comparison/Visual Test 2.png\\">
-                            <img src=\\"visual-screenshots/comparison/Visual Test 2.png\\" alt=\\"Snow\\" style=\\"width:100%\\">
+                          <a href=\\"../visual-screenshots/comparison/Visual Test 2.png\\">
+                            <img src=\\"../visual-screenshots/comparison/Visual Test 2.png\\" alt=\\"Snow\\" style=\\"width:100%\\">
                           </a>
                         </div>
                         <div class=\\"screenshot-column\\">
                           <h4>Diff</h4>
-                          <a href=\\"visual-screenshots/diff/Visual Test 2.png\\">
-                            <img src=\\"visual-screenshots/diff/Visual Test 2.png\\" alt=\\"Snow\\" style=\\"width:100%\\">
+                          <a href=\\"../visual-screenshots/diff/Visual Test 2.png\\">
+                            <img src=\\"../visual-screenshots/diff/Visual Test 2.png\\" alt=\\"Snow\\" style=\\"width:100%\\">
                           </a>
                         </div>
                       </div>
