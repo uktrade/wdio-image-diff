@@ -3,17 +3,17 @@ import fs from 'fs'
 import path from 'path'
 import paths from '../config/config'
 
-export const generateTemplate = testStatus => {
+export const generateTemplate = options => {
   handlebarsHelpers()
   const templateFile = fs.readFileSync(path.resolve(__dirname, '../reporter/template.hbs'), 'utf8')
   const template = Handlebars.compile(templateFile)
 
-  return template(testStatus)
+  return template(options)
 }
 
-export const createReport = testStatus => {
-  const template = generateTemplate(testStatus)
-  fs.writeFile(paths.report(), template, err => {
+export const createReport = options => {
+  const template = generateTemplate(options)
+  fs.writeFile(paths.report(options.browserName), template, err => {
     if (err) throw err
   })
 }
