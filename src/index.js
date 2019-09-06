@@ -16,7 +16,8 @@ class WdioImage {
 
     // wdio browser instance
     this._browser = browser
-
+    this.browserName = this._browser.capabilities.browserName || ''
+  
     // Create parent directory
     createDir(path.parentDir)
 
@@ -40,7 +41,8 @@ class WdioImage {
   }
 
   generateReport() {
-    createReport({ tests: this.testStatuses })
+    createDir(path.reportDir)
+    createReport({ tests: this.testStatuses, browserName: this.browserName })
   }
 }
 
