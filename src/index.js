@@ -3,6 +3,7 @@ import { createReport } from './reporter'
 import imageDiff from './commands/image-diff'
 import path from './config/config'
 import saveScreenshot from './commands/save-screenshot'
+import saveElementScreenshot from './commands/save-element-screenshot'
 import TestStatus from './reporter/test-status'
 
 class WdioImage {
@@ -32,6 +33,10 @@ class WdioImage {
 
   take() {
     return saveScreenshot(this._browser, this.testName)
+  }
+
+  takeElement(elementCssPath) {
+    return saveElementScreenshot(this._browser, this.testName, elementCssPath)
   }
 
   async validate() {
