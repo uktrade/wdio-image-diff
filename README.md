@@ -8,15 +8,16 @@ The wrapper uses [pixelmatch](https://github.com/mapbox/pixelmatch) which is sim
 [![CircleCI](https://circleci.com/gh/uktrade/wdio-image-diff/tree/master.svg?style=svg)](https://circleci.com/gh/uktrade/wdio-image-diff/tree/master)
 
 ## Capabilities
+
 - Compares 2 images
 - Saves baseline if no baseline is present
 - Creates a diff image in case of failure
 - Works with any device/browser supported by wdio and your third party i.e saucelabs
 - Force browser window size so it's not reliant on third party (size can be modified via options)
-
-**It's currently limited to take screenshots of the entire page
+- Take screenshot of the whole page or for a given element
 
 ## Integration with webdriverIO
+
 - in `wdio.conf.js` require the package: `const WdioImage = require ('@uktrade/wdio-image-diff-js').default`
 - instantiate and expose the `wdioImageDiff` instance to the browser object:
   ```
@@ -32,23 +33,29 @@ The wrapper uses [pixelmatch](https://github.com/mapbox/pixelmatch) which is sim
   ```
 
 ## Writing a test
+
 - Writing a visual test is composed by 3 steps:
-  1) navigating to a URL and if needed interacting with the UI to navigate to a specific page
-  2) take a screenshot
-  3) validate it with the baseline (if no baseline is present for the given test, it will save it for you)
   ```
   const assert = require('assert')
 
   describe('Visual Test', () => {
     it('should visually check data hub home page is correct', async () => {
+      // Navigate to a page (preferably mocked)
       await browser.url('')
+      // Take a screenshot of the page (or element, see below)
       await browser.imageDiff.take()
+      // Assert images have no pixel differences
       await browser.imageDiff.validate().then(result => {
         assert.equal(result, 0)
       })
     })
   })
   ```
+
+###Notice
+
+Alternatively you can use `takeElement(elementCssPath)` function if you want to
+narrow down the area you are testing in the page.
 
 ## Options
 
