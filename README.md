@@ -70,7 +70,7 @@ On CentOS
   })
   ```
 
-###Notice
+### Notice
 
 Alternatively you can use `takeElement(elementCssPath)` function if you want to
 narrow down the area you are testing in the page.
