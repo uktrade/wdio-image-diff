@@ -32,6 +32,24 @@ The wrapper uses [pixelmatch](https://github.com/mapbox/pixelmatch) which is sim
   }
   ```
 
+## Dependencies
+
+In order to use `takeElement(elementCssPath)` function you will need to
+install imagemagick as we crop the full page screenshot in order to have
+an image of a given element.
+
+On Ubuntu
+
+`$ apt-get install imagemagick`
+
+On Mac OS X
+
+`$ brew install imagemagick`
+
+On CentOS
+
+`$ yum install imagemagick`
+
 ## Writing a test
 
 - Writing a visual test is composed by 3 steps:
