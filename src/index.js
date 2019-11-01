@@ -1,7 +1,7 @@
 import createDir from './utils'
 import { createReport } from './reporter'
 import imageDiff from './commands/image-diff'
-import path from './config/config'
+import path from './config'
 import saveScreenshot from './commands/save-screenshot'
 import saveElementScreenshot from './commands/save-element-screenshot'
 import TestStatus from './reporter/test-status'
