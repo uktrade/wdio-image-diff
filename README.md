@@ -52,7 +52,6 @@ On CentOS
 
 ## Writing a test
 
-- Writing a visual test is composed by 3 steps:
   ```
   const assert = require('assert')
 
@@ -74,6 +73,17 @@ On CentOS
 
 Alternatively you can use `takeElement(elementCssPath)` function if you want to
 narrow down the area you are testing in the page.
+
+## CLI
+
+You can use wdio-image-diff client to update the baselines when needed. The way the baseline
+images are updated is by copying the comparison images over to the baseline folder, simply run
+the command below:
+
+`$ wdio-image-diff -u`
+
+It's important that you ensure the comparison image is the correct representation of the page
+under test as it will be copied over to the baseline.
 
 ## Options
 
