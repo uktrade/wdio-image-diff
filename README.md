@@ -7,6 +7,7 @@ The wrapper uses [pixelmatch](https://github.com/mapbox/pixelmatch) which is sim
 
 [![Build Status][circleci-image]][circleci-url]
 
+[npm-downloads-image]: https://badgen.net/npm/dm/@uktrade/wdio-image-diff-js
 [npm-url]: https://www.npmjs.com/package/@uktrade/wdio-image-diff-js
 [circleci-url]: https://circleci.com/gh/uktrade/wdio-image-diff/tree/master
 [circleci-image]: https://circleci.com/gh/uktrade/wdio-image-diff/tree/master.svg?style=svg
