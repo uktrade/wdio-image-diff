@@ -3,9 +3,13 @@
 This wrapper was created to make visual regression as simple as possible, by exposing basic functions that allow you to view the difference between images.
 The wrapper uses [pixelmatch](https://github.com/mapbox/pixelmatch) which is simple and powerful and relies on a browser object of [webdriverIO](https://github.com/webdriverio) to take screenshots.
 
-## Build status
+[![NPM Downloads][npm-downloads-image]][npm-url]
 
-[![CircleCI](https://circleci.com/gh/uktrade/wdio-image-diff/tree/master.svg?style=svg)](https://circleci.com/gh/uktrade/wdio-image-diff/tree/master)
+[![Build Status][circleci-image]][circleci-url]
+
+[npm-url]: https://www.npmjs.com/package/@uktrade/wdio-image-diff-js
+[circleci-url]: https://circleci.com/gh/uktrade/wdio-image-diff/tree/master
+[circleci-image]: https://circleci.com/gh/uktrade/wdio-image-diff/tree/master.svg?style=svg
 
 ## Capabilities
 
