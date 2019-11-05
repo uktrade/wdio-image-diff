@@ -4,8 +4,8 @@
   "description": "This package is visual regression tool intended to expose functions specifically for webdriverIO so that you can take screenshots and compare it to a baseline.",
   "main": "lib/index.js",
   "bin": {
-    "wdio-image-diff": "bin/wdio-image-diff",
-    "@uktrade/wdio-image-diff": "bin/wdio-image-diff"
+    "wdio-image-diff": "./bin/wdio-image-diff",
+    "@uktrade/wdio-image-diff": "./bin/wdio-image-diff"
   },
   "publishConfig": {
     "access": "public"
