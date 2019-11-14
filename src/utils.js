@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs-extra'
 
 const createDir = dir => {
   if (!fs.existsSync(dir)) {
@@ -6,4 +6,14 @@ const createDir = dir => {
   }
 }
 
-export default createDir
+const cleanDir = dir => {
+  if (fs.existsSync(dir)) {
+    fs.emptyDirSync(dir)
+  }
+}
+
+const readDir = dir => {
+  return fs.readdirSync(dir)
+}
+
+export { createDir, cleanDir, readDir }
