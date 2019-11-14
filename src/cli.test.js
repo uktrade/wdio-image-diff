@@ -1,9 +1,10 @@
 import { cli } from './cli'
-import { copySync } from 'fs-extra'
+import { copySync, readdirSync } from 'fs-extra'
 
 jest.mock('fs-extra', () => ({
   ...jest.requireActual('fs-extra'),
   copySync: jest.fn(),
+  readdirSync: jest.fn(),
 }))
 
 describe('Cli', () => {
@@ -18,8 +19,10 @@ describe('Cli', () => {
     })
 
     it('should update baseline images if argument is specified', () => {
+      readdirSync.mockReturnValue(['File1.png', 'File2.png'])
+
       cli(['--dummyArg1', '--dummyArg2', '-u'])
-      expect(copySync).toHaveBeenCalledTimes(1)
+      expect(copySync).toHaveBeenCalledTimes(2)
     })
 
     it('should ignore the first 2 arguments', () => {

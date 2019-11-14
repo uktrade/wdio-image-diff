@@ -2,6 +2,7 @@ import arg from 'arg'
 import fs from 'fs-extra'
 
 import path from './config'
+import { readDir } from './utils'
 
 const parseArgumentsIntoOptions = rawArgs => {
  const args = arg(
@@ -23,6 +24,12 @@ export function cli(args) {
  let options = parseArgumentsIntoOptions(args)
 
  if (options.updateBaseline) {
-   fs.copySync(path.dir.comparison, path.dir.baseline)
+   // Only update image if it failed the comparison
+   const filesToUpdate = readDir(path.dir.diff)
+   if (filesToUpdate) {
+     filesToUpdate.forEach(file => {
+       fs.copySync(path.dir.comparison + '/' + file, path.dir.baseline + '/' + file)
+     })
+   }
  }
 }
