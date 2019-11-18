@@ -1,4 +1,4 @@
-import createDir from './utils'
+import { createDir, cleanDir } from './utils'
 import { createReport } from './reporter'
 import imageDiff from './commands/image-diff'
 import path from './config'
@@ -29,6 +29,10 @@ class WdioImage {
     Object.values(path.dir).forEach(dir => {
       createDir(dir)
     })
+
+    // Clean diff and comparison subfolders
+    cleanDir(path.dir.comparison)
+    cleanDir(path.dir.diff)
   }
 
   take() {
