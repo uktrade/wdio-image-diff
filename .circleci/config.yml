@@ -58,7 +58,7 @@ jobs:
           command: npm run build
       - run:
           name: Publish (semantic release - master only)
-          command: semantic-release
+          command: ./node_modules/.bin/semantic-release
 
 workflows:
   version: 2
