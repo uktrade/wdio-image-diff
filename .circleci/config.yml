@@ -54,9 +54,11 @@ jobs:
       - checkout
       - *restore_npm_cache
       - run:
-          name: Jest tests
-          command: ./build-and-publish.sh
-          when: always
+          name: Build
+          command: npm run build
+      - run:
+        name: Publish (semantic release - master only)
+        command: semantic-release
 
 workflows:
   version: 2
