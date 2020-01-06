@@ -64,7 +64,7 @@
     "esm": "^3.2.25",
     "fs": "0.0.1-security",
     "fs-extra": "^8.1.0",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.5.3",
     "inquirer": "^7.0.0",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.4.0"
