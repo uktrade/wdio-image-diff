@@ -29,8 +29,7 @@
   "author": "UK GOV - DIT",
   "license": "MIT",
   "engines": {
-    "yarn": "1.16.0",
-    "node": "10.16.0"
+    "node": ">=10.16.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
