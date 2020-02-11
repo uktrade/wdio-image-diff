@@ -10,14 +10,19 @@ For unit tests run:
 
 ### Setup
 
-You will need to have a `.env` file with browserstack credentials setup I.E
+You will need to have a `.env` file with browserstack credentials setup, below
+is a sample of the file environment variables:
 
+```
 BROWSERSTACK_USERNAME=username
 BROWSERSTACK_ACCESS_KEY=accesskey
+```
 
 ### Running the tests
 
-`$ docker build e2e/Dcokerfile -t visual-regression-test`
+In project root, run:
+
+`$ docker build . -t visual-regression-test`
 `$ docker run visual-regression-test`
 
 ***Notice: you will need to have a browserstack user/accesskey to be able to run the tests.
