@@ -1,6 +1,9 @@
 .eslintcache
 lib/
 node_modules/
-visual-screenshots/
-index.html
 .env
+
+# Test
+index.html
+visual-screenshots/
+visual-report
