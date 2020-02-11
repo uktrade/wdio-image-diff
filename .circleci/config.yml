@@ -6,6 +6,11 @@ aliases:
     restore_cache:
       name: Restore npm dependencies cache
       key: npm-dependency-{{ checksum "package.json" }}
+  - &workflow_common
+    requires:
+      - dependencies 
+  - &wdio_diff_e2e_docker
+    image: ukti/wdio-diff-image-test:1.0.0
 
 jobs:
   dependencies:
@@ -22,7 +27,7 @@ jobs:
           paths:
             - ~/wdio-image-diff/node_modules
 
-  lint_test:
+  lint_tests:
     docker:
       - image: *node_version
     working_directory: ~/wdio-image-diff
@@ -34,7 +39,7 @@ jobs:
           command: npm run lint
           when: always
 
-  unit_test:
+  unit_tests:
     docker:
       - image: *node_version
     working_directory: ~/wdio-image-diff
@@ -44,6 +49,18 @@ jobs:
       - run:
           name: Jest tests
           command: npm run test
+          when: always
+
+  e2e_tests:
+    docker:
+      - <<: *wdio_diff_e2e_docker
+    working_directory: ~/wdio-image-diff
+    steps:
+      - checkout
+      - *restore_npm_cache
+      - run:
+          name: E2E tests
+          command: npm run test:e2e
           when: always
 
   build_and_publish:
@@ -65,16 +82,14 @@ workflows:
   wdioimagediff:
     jobs:
       - dependencies
-      - lint_test:
-          requires:
-            - dependencies
-      - unit_test:
-          requires:
-            - dependencies
+      - lint_tests: *workflow_common
+      - unit_tests: *workflow_common
+      - e2e_tests: *workflow_common
       - build_and_publish:
           requires:
-            - lint_test
-            - unit_test
+            - lint_tests
+            - unit_tests
+            - e2e_tests
           filters:
             branches:
               only:
