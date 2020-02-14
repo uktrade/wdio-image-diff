@@ -1,5 +1,10 @@
 .eslintcache
 lib/
 node_modules/
-visual-screenshots/
+.env
+
+# Test
 index.html
+visual-screenshots/diff
+visual-screenshots/comparison
+visual-report
