@@ -7,11 +7,11 @@ EXPOSE 4455
 RUN apt-get update
 
 # Install visual test dependencies
+WORKDIR /project
 COPY package.json package-lock.json /project/
 RUN apt-get install -y imagemagick
 RUN npm install
 
-WORKDIR /project
 COPY . /project/
 
 CMD npm run test:e2e
