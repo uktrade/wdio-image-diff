@@ -17,6 +17,8 @@ describe('Visual test', () => {
 
   it('should remove element before taking screenshot', async () => {
     await browser.url('/report')
+    const header = await $('#report-header')
+    await header.waitForDisplayed(5000)
     await browser.imageDiff.hideElement('#report-header')
     await browser.imageDiff.take()
     const result = await browser.imageDiff.validate()
