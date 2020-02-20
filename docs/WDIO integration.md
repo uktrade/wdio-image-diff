@@ -55,9 +55,8 @@ Available properties used by methods of the class
     it('should visually check data hub home page is correct', async () => {
       await browser.url('')
       await browser.imageDiff.take()
-      await browser.imageDiff.validate().then(result => {
-        assert.equal(result, 0) // 0 represents the pixel differences between images
-      })
+      const result = await browser.imageDiff.validate()
+      assert.equal(result, 0) // 0 represents the pixel differences between images
     })
   })
   ```
@@ -70,9 +69,8 @@ Available properties used by methods of the class
     it('should visually check data hub home page is correct', async () => {
       await browser.url('')
       await browser.imageDiff.takeElement(elementCssPath)
-      await browser.imageDiff.validate().then(result => {
-        assert.equal(result, 0) // 0 represents the pixel differences between images
-      })
+      const result = await browser.imageDiff.validate()
+      assert.equal(result, 0)
     })
   })
   ```
@@ -86,9 +84,8 @@ Available properties used by methods of the class
       await browser.url('')
       await browser.imageDiff.hideElement(elementCssPath) // If you need to enable it for the next test, use hideElement(elementCssPath, false)
       await browser.imageDiff.take()
-      await browser.imageDiff.validate().then(result => {
-        assert.equal(result, 0) // 0 represents the pixel differences between images
-      })
+      const result = await browser.imageDiff.validate()
+      assert.equal(result, 0)
     })
   })
   ```

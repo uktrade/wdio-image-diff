@@ -10,7 +10,7 @@
     "access": "public"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jest src/",
+    "test": "jest src/",
     "test:e2e": "npm run build && wdio",
     "lint": "eslint --cache src/",
     "build": "babel src -d lib && cp src/reporter/template.hbs lib/reporter/"
