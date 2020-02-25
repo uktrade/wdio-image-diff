@@ -45,7 +45,7 @@ class WdioImage {
   }
 
   hideElement(elementCssPath, hide=true) {
-    elementDisplay(this._browser, elementCssPath, hide)
+    return elementDisplay(this._browser, elementCssPath, hide)
   }
 
   async validate() {

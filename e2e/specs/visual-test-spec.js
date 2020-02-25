@@ -20,6 +20,7 @@ describe('Visual test', () => {
     const header = await $('#report-header')
     await header.waitForDisplayed(5000)
     await browser.imageDiff.hideElement('#report-header')
+    await header.waitForDisplayed(5000, true)
     await browser.imageDiff.take()
     const result = await browser.imageDiff.validate()
     assert.equal(result, 0)
