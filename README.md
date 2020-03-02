@@ -29,6 +29,7 @@ The wrapper uses [pixelmatch](https://github.com/mapbox/pixelmatch) which is sim
 - Works with any device/browser supported by wdio and your third party i.e saucelabs
 - Force browser window size so it's not reliant on third party (size can be modified via options)
 - Take screenshot of the whole page or for a given element
+- Hide elements which get updated dynamically to make the test more reliable
 
 ## Dependencies
 

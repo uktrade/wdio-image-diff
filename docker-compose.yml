@@ -1,0 +1,9 @@
+version: '2'
+services:
+  visual-regression:
+    build: .
+    environment:
+      BROWSERSTACK_USERNAME: ${BROWSERSTACK_USERNAME}
+      BROWSERSTACK_ACCESS_KEY: ${BROWSERSTACK_ACCESS_KEY}
+    volumes:
+      - ./:/project

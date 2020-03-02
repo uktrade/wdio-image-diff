@@ -22,8 +22,8 @@ BROWSERSTACK_ACCESS_KEY=accesskey
 
 In project root, run:
 
-`$ docker build . -t visual-regression-test`
-`$ docker run visual-regression-test`
+`$ docker-compose build`
+`$ docker-compose up`
 
 ***Notice: you will need to have a browserstack user/accesskey to be able to run the tests.
 

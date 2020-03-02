@@ -4,6 +4,7 @@ import imageDiff from './commands/image-diff'
 import path from './config'
 import saveScreenshot from './commands/save-screenshot'
 import saveElementScreenshot from './commands/save-element-screenshot'
+import elementDisplay from './commands/element-display'
 import TestStatus from './reporter/test-status'
 
 class WdioImage {
@@ -41,6 +42,10 @@ class WdioImage {
 
   takeElement(elementCssPath) {
     return saveElementScreenshot(this._browser, this.testName, elementCssPath)
+  }
+
+  hideElement(elementCssPath, hide=true) {
+    return elementDisplay(this._browser, elementCssPath, hide)
   }
 
   async validate() {

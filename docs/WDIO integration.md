@@ -46,16 +46,46 @@ Available properties used by methods of the class
 
 ## Writing a test
 
+
+### Compare screenshots entire page
   ```
   const assert = require('assert')
 
   describe('Visual Test', () => {
     it('should visually check data hub home page is correct', async () => {
       await browser.url('')
-      await browser.imageDiff.take() // alternatively you can use takeElement(elementCssPath)
-      await browser.imageDiff.validate().then(result => {
-        assert.equal(result, 0) // 0 represents the pixel differences between images
-      })
+      await browser.imageDiff.take()
+      const result = await browser.imageDiff.validate()
+      assert.equal(result, 0) // 0 represents the pixel differences between images
+    })
+  })
+  ```
+
+### Take screenshot and compare of an element
+  ```
+  const assert = require('assert')
+
+  describe('Visual Test', () => {
+    it('should visually check data hub home page is correct', async () => {
+      await browser.url('')
+      await browser.imageDiff.takeElement(elementCssPath)
+      const result = await browser.imageDiff.validate()
+      assert.equal(result, 0)
+    })
+  })
+  ```
+
+### Hide element before taking screenshots 
+  ```
+  const assert = require('assert')
+
+  describe('Visual Test', () => {
+    it('should visually check data hub home page is correct', async () => {
+      await browser.url('')
+      await browser.imageDiff.hideElement(elementCssPath) // If you need to enable it for the next test, use hideElement(elementCssPath, false)
+      await browser.imageDiff.take()
+      const result = await browser.imageDiff.validate()
+      assert.equal(result, 0)
     })
   })
   ```
