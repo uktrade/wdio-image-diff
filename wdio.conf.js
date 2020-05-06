@@ -9,7 +9,14 @@ const browserStackKey = process.env.BROWSERSTACK_ACCESS_KEY || ''
 let testName
 
 const remoteConfig = {
-  services: ['browserstack'],
+  services: [
+    [
+      'browserstack', {
+        browserstackLocal: true
+      }
+    ],
+    'static-server'
+  ],
   user: browserStackUser,
   key: browserStackKey,
   browserstackLocal: true,
@@ -65,6 +72,10 @@ const defaultConfig = {
   mochaOpts: {
     timeout: 60000,
   },
+  staticServerFolders: [
+    { mount: '/report', path: './report-example.html' },
+  ],
+  staticServerPort: 4455,
   featureFlags: {
     specFiltering: true
   },
