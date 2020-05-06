@@ -9,24 +9,25 @@ const browserStackKey = process.env.BROWSERSTACK_ACCESS_KEY || ''
 let testName
 
 const remoteConfig = {
-  services: ['browserstack', 'static-server'],
+  services: ['browserstack'],
   user: browserStackUser,
   key: browserStackKey,
   browserstackLocal: true,
   // Code to start browserstack local before start of test
-  onPrepare: function () {
+  onPrepare: function (config, capabilities) {
     console.log("Connecting local");
     return new Promise(function(resolve, reject){
       exports.bs_local = new browserstack.Local();
       exports.bs_local.start({'key': exports.config.key }, function(error) {
         if (error) return reject(error);
         console.log('Connected. Now testing...');
+
         resolve();
       });
     });
   },
   // Code to stop browserstack local after end of test
-  onComplete: function () {
+  onComplete: function (capabilties, specs) {
     exports.bs_local.stop(function() {});
   },
   capabilities: [
@@ -64,10 +65,9 @@ const defaultConfig = {
   mochaOpts: {
     timeout: 60000,
   },
-  staticServerFolders: [
-    { mount: '/report', path: './report-example.html' },
-  ],
-  staticServerPort: 4455,
+  featureFlags: {
+    specFiltering: true
+  },
   before: () => {
     const wdioImageDiff = new WdioImage(browser, { threshold: 0.3 })
     browser.imageDiff = wdioImageDiff
