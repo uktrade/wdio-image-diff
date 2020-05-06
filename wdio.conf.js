@@ -14,7 +14,7 @@ const remoteConfig = {
   key: browserStackKey,
   browserstackLocal: true,
   // Code to start browserstack local before start of test
-  onPrepare: function (config, capabilities) {
+  onPrepare: function () {
     console.log("Connecting local");
     return new Promise(function(resolve, reject){
       exports.bs_local = new browserstack.Local();
@@ -27,7 +27,7 @@ const remoteConfig = {
     });
   },
   // Code to stop browserstack local after end of test
-  onComplete: function (capabilties, specs) {
+  onComplete: function () {
     exports.bs_local.stop(function() {});
   },
   capabilities: [
