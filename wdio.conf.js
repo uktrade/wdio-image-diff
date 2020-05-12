@@ -84,7 +84,7 @@ const defaultConfig = {
     browser.imageDiff = wdioImageDiff
   },
   beforeTest: (test) => {
-    testName = `${test.fullTitle} - ${browser.capabilities.browserName}`
+    testName = `${test.parent} ${test.title} - ${browser.capabilities.browserName}`
     browser.imageDiff.testName = testName
   },
   after: () => {
