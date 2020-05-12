@@ -15,7 +15,7 @@ instantiate and expose the `wdioImageDiff` instance to the browser object:
       browser.imageDiff = wdioImageDiff
     },
     beforeTest: (test) => {
-      browser.imageDiff.testName = `${test.fullTitle} - ${browser.capabilities.browserName}`
+      browser.imageDiff.testName = `${test.parent} ${test.title} - ${browser.capabilities.browserName}`
     },
   }
   ```
