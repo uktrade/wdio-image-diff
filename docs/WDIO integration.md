@@ -26,16 +26,12 @@ When instantiating the `WdioImage` you can provide an `options` object i.e:
 
 ```
 const options = {
-  width: 1024,
-  height: 768,
   threshold: 0.1
 }
 const wdioImageDiff = new WdioImage(browser, options)
 ```
 
 the default values if options or any of its keys is not provided are:
-  - width: 1280
-  - height: 870
   - threshold: 0.0
 
 ### Properties

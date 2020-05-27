@@ -23,8 +23,8 @@ class WdioImage {
     // Create parent directory
     createDir(path.parentDir)
 
-    // Sets window size
-    this._browser.setWindowSize(options.width || 1280, options.height || 870)
+    // Maximise window size
+    this._browser.maximizeWindow()
 
     // Create subfolders in parent directory
     Object.values(path.dir).forEach(dir => {

@@ -42,15 +42,14 @@ const remoteConfig = {
       'os': 'Windows',
       'os_version': '10',
       'browserName': 'Chrome',
-      'browser_version': '76.0 beta',
-      'resolution': '1920x1080'
+      'resolution': '1024x768'
     },
     {
       'os': 'Windows',
       'os_version': '10',
       'browserName': 'IE',
       'browser_version': '11.0',
-      'resolution': '1920x1080'
+      'resolution': '1024x768'
     },
   ]
 }
