@@ -8,7 +8,15 @@ export const generateTemplate = options => {
   const templateFile = fs.readFileSync(path.resolve(__dirname, '../reporter/template.hbs'), 'utf8')
   const template = Handlebars.compile(templateFile)
 
-  return template(options)
+  return template(
+    options,
+    {
+      allowProtoPropertiesByDefault: {
+        testStatus: true,
+        name: true,
+      },
+    }
+  )
 }
 
 export const createReport = options => {
