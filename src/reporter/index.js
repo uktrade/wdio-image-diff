@@ -11,7 +11,7 @@ export const generateTemplate = options => {
   return template(
     options,
     {
-      allowedProtoMethods: {
+      allowProtoPropertiesByDefault: {
         testStatus: true,
         name: true,
       },
