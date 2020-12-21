@@ -2,7 +2,6 @@
 require('dotenv').config()
 
 const WdioImage = require('./lib').default
-const browserstack = require('browserstack-local')
 
 const browserStackUser = process.env.BROWSERSTACK_USERNAME || ''
 const browserStackKey = process.env.BROWSERSTACK_ACCESS_KEY || ''
@@ -20,23 +19,6 @@ const remoteConfig = {
   user: browserStackUser,
   key: browserStackKey,
   browserstackLocal: true,
-  // Code to start browserstack local before start of test
-  onPrepare: function () {
-    console.log("Connecting local");
-    return new Promise(function(resolve, reject){
-      exports.bs_local = new browserstack.Local();
-      exports.bs_local.start({'key': exports.config.key }, function(error) {
-        if (error) return reject(error);
-        console.log('Connected. Now testing...');
-
-        resolve();
-      });
-    });
-  },
-  // Code to stop browserstack local after end of test
-  onComplete: function () {
-    exports.bs_local.stop(function() {});
-  },
   capabilities: [
     {
       'os': 'Windows',
@@ -78,17 +60,17 @@ const defaultConfig = {
   featureFlags: {
     specFiltering: true
   },
-  before: () => {
+  before: function (capabilities, specs, browser) {
     const wdioImageDiff = new WdioImage(browser, { threshold: 0.3 })
     browser.imageDiff = wdioImageDiff
   },
-  beforeTest: (test) => {
+  beforeTest: function (test) {
     testName = `${test.parent} ${test.title} - ${browser.capabilities.browserName}`
     browser.imageDiff.testName = testName
   },
-  after: () => {
+  after: function () {
     browser.imageDiff.generateReport()
-  }
+  },
 }
 
 exports.config = Object.assign({}, defaultConfig, remoteConfig)
