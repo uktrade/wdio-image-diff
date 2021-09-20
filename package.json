@@ -13,7 +13,8 @@
     "test": "jest src/",
     "test:e2e": "npm run build && wdio",
     "lint": "eslint --cache src/",
-    "build": "babel src -d lib && cp src/reporter/template.hbs lib/reporter/"
+    "build": "babel src -d lib && cp src/reporter/template.hbs lib/reporter/",
+    "preinstall": "npx npm-force-resolutions"
   },
   "repository": {
     "type": "git",
@@ -85,7 +86,7 @@
   "resolutions": {
     "lodash": "^4.17.15",
     "mixin-deep": ">=2.0.1",
-    "set-value": ">=3.0.1",
+    "set-value": ">=4.0.1",
     "handlebars": ">=4.7.6",
     "yargs-parser": ">=13.1.2"
   }
